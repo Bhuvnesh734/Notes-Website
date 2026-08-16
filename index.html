@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Margin — Study Notes</title>
+<meta name="description" content="Find and study subject notes, chapter by chapter." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#view-root">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header__row">
+    <button id="mobile-nav-toggle" class="icon-btn nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="#/" class="logo" data-link>
+      <span class="logo__mark">M</span>
+      <span class="logo__text">Margin</span>
+    </a>
+
+    <form id="header-search-form" class="header-search" role="search">
+      <input
+        id="header-search-input"
+        type="search"
+        name="q"
+        placeholder="Search notes, chapters, subjects…"
+        aria-label="Search notes"
+        autocomplete="off"
+      />
+      <button type="submit" class="icon-btn" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+
+    <nav id="primary-nav" class="primary-nav">
+      <a href="#/" data-link>Home</a>
+      <a href="#/my-notes" data-link data-requires-auth>My Notes</a>
+      <a href="#/admin" data-link data-requires-admin class="hidden">Admin</a>
+      <div id="auth-area" class="auth-area">
+        <a href="#/login" data-link class="btn btn--ghost" data-guest-only>Log in</a>
+        <a href="#/signup" data-link class="btn btn--primary" data-guest-only>Sign up</a>
+        <div class="user-menu hidden" data-user-only>
+          <button id="user-menu-btn" class="user-chip" aria-haspopup="true" aria-expanded="false">
+            <span id="user-menu-initial">U</span>
+          </button>
+          <div id="user-menu-dropdown" class="user-menu__dropdown hidden">
+            <div class="user-menu__email" id="user-menu-email"></div>
+            <a href="#/my-notes" data-link>My Notes</a>
+            <a href="#/admin" data-link data-requires-admin class="hidden">Admin Dashboard</a>
+            <button id="logout-btn" type="button">Log out</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="view-root" tabindex="-1"></main>
+
+<footer class="site-footer">
+  <p>Margin — a place for your notes. Built with Supabase.</p>
+</footer>
+
+<div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+
+<template id="tpl-lightbox">
+  <div class="lightbox" role="dialog" aria-modal="true">
+    <div class="lightbox__panel">
+      <button class="lightbox__close icon-btn" aria-label="Close">&times;</button>
+      <div class="lightbox__body"></div>
+    </div>
+  </div>
+</template>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
