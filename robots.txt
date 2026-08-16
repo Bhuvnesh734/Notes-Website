@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bhuvnesh734.github.io/Notes-Website/sitemap.xml
